@@ -1,11 +1,19 @@
 import React from 'react';
-   import DestinationList from './DestinationList';
+import DestinationList from './DestinationList';
+import AddDestinationForm from './AddDestinationForm';
+import DestinationDetails from './DestinationDetails';
+import Destination from './Destination';
 
-  export default function App() {
-     return (
-       <div>
-         <DestinationList />
-       </div>
-     );
-   }
+const App = () => {
+  return (
+    <div>
+      <DestinationList />
+      <AddDestinationForm/>
+      <Destination/>
+      <DestinationDetails/>
+      
+    </div>
+  );
+};
 
+export default App;
