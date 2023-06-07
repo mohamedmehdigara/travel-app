@@ -1,26 +1,111 @@
+/* App container */
 .container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-h1, h2 {
+/* Header */
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
   text-align: center;
 }
 
-ul {
+/* Navigation */
+.navbar {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.navbar ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-li {
-  width: 30%;
-  margin-bottom: 20px;
+.navbar li {
+  margin: 0 10px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Destination List */
+Destination-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+destination{
+  background-color: #f2f2f2;
   padding: 20px;
-  border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0)}
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.destination-card h3 {
+  margin-top: 0;
+}
+
+/* Destination Details */
+.destination-details {
+  padding: 20px;
+}
+
+.destination-details h2 {
+  margin-top: 0;
+}
+
+.destination-details p {
+  line-height: 1.5;
+}
+
+/* Add Destination Form */
+.add-destination-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.add-destination-form input,
+.add-destination-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.add-destination-form button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.add-destination-form button:hover {
+  background-color: #555;
+}
+
+/* Saved Destinations */
+.saved-destinations {
+  margin-top: 20px;
+}
+
+.saved-destinations h2 {
+  margin-top: 0;
+}
+
+.saved-destinations .destination-card {
+  background-color: #f8f8f8;
+}
+
+.saved-destinations .destination-card:hover {
+  background-color: #eee;
+}

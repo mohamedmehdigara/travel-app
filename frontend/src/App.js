@@ -4,6 +4,7 @@ import AddDestinationForm from './AddDestinationForm';
 import DestinationDetails from './DestinationDetails';
 import Destination from './Destination';
 import SavedDestinations from './SavedDestinations';
+import "./App.css"
 
 const App = () => {
   const [destinations] = useState([]);
