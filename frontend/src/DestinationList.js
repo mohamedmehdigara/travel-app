@@ -1,37 +1,21 @@
-import React, { useState } from 'react';
-import DestinationDetails from './DestinationDetails';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import SavedDestinations from './SavedDestinations';
 
-const DestinationList = ({ destinations }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedDestination, setSelectedDestination] = useState(null);
-  if (!destinations) {
-    return <div>No destinations available</div>;
-  }
-
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const handleDestinationClick = (destination) => {
-    setSelectedDestination(destination);
-  };
-
-  const filteredDestinations = destinations.filter((destination) =>
-    destination.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
+const DestinationList = ({ destinations, onToggleSaveDestination }) => {
   return (
     <div>
       <h2>Travel Destinations</h2>
-      <input type="text" value={searchTerm} onChange={handleSearchChange} placeholder="Search destinations" />
       <ul>
-        {filteredDestinations.map((destination) => (
-          <li key={destination.id} onClick={() => handleDestinationClick(destination)}>
-            {destination.name}
+        {destinations.map((destination) => (
+          <li key={destination.id}>
+            <Link to={`/destinations/${destination.id}`}>{destination.name}</Link>
+            <button onClick={() => onToggleSaveDestination(destination.id)}>
+              {SavedDestinations.includes(destination) ? 'Remove from Saved' : 'Add to Saved'}
+            </button>
           </li>
         ))}
       </ul>
-      <DestinationDetails destination={selectedDestination} />
     </div>
   );
 };
