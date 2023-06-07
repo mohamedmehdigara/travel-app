@@ -21,7 +21,7 @@ const AddDestinationForm = () => {
     // Perform any necessary validation before submitting the form
     // Here, you can send the form data to an API or perform any desired actions
     console.log(destination);
-    
+
     // Reset the form fields
     setDestination({
       name: '',
@@ -70,3 +70,4 @@ const AddDestinationForm = () => {
 };
 
 export default AddDestinationForm;
+
