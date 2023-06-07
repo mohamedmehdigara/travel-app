@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import DestinationList from './DestinationList';
 import AddDestinationForm from './AddDestinationForm';
 import DestinationDetails from './DestinationDetails';
@@ -6,9 +6,9 @@ import Destination from './Destination';
 
 
 const App = () => {
-  const destinations = [
-    // Your list of destinations
-  ];
+ 
+  const [destinations] = useState([]);
+
 
   return (
     <div>
