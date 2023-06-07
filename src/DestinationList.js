@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
 import DestinationDetails from './DestinationDetails';
 
-const DestinationList = () => {
+const DestinationList = ({ destinations }) => {
+  const [searchTerm, setSearchTerm] = useState('');
   const [selectedDestination, setSelectedDestination] = useState(null);
+  if (!destinations) {
+    return <div>No destinations available</div>;
+  }
 
-  const destinations = [
-    // Your list of destinations
-  ];
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
   const handleDestinationClick = (destination) => {
     setSelectedDestination(destination);
   };
 
+  const filteredDestinations = destinations.filter((destination) =>
+    destination.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div>
       <h2>Travel Destinations</h2>
+      <input type="text" value={searchTerm} onChange={handleSearchChange} placeholder="Search destinations" />
       <ul>
-        {destinations.map((destination) => (
+        {filteredDestinations.map((destination) => (
           <li key={destination.id} onClick={() => handleDestinationClick(destination)}>
             {destination.name}
           </li>
