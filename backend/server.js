@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const authenticateToken = require('./authMiddleware');
+
 
 // Middleware to parse JSON requests
 app.use(express.json());
@@ -10,6 +12,13 @@ app.use(express.json());
 app.listen(5000, () => {
   console.log('Server started on port 5000');
 });
+app.get('/protected', authenticateToken, (req, res) => {
+    // Access the authenticated user data from req.user
+    const userId = req.user.userId;
+  
+    // Return the protected data
+    res.json({ message: 'This is a protected route', userId });
+  });
 
 app.post('/register', (req, res) => {
     // Get the registration details from the request body
